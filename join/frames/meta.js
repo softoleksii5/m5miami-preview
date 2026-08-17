@@ -1,0 +1,1 @@
+window.__JSETS={d:{p:"frames/f",n:102,c:67},m:{p:"frames-m/m",n:51,c:34}};
