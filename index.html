@@ -534,6 +534,13 @@ body.menu-open .mbar,body.menu-open .wa-float{display:none}
   .svc li{padding:10px 20px}
   .svc-price{padding:14px 20px 20px}
 }
+/* five cards after T8: 3 on top, 2 wide below, no empty slot */
+@media(min-width:1001px){
+  .svc-grid{grid-template-columns:repeat(6,1fr)}
+  .svc{grid-column:span 2}
+  .svc:nth-child(n+4){grid-column:span 3}
+  .svc:nth-child(n+4) .svc-photo{aspect-ratio:12/5}
+}
   /* T11b texture captions */
 .tex{border-radius:var(--radius-0)}
 .tex::after{content:"";position:absolute;inset:50% 0 0 0;background:linear-gradient(180deg,rgba(20,18,15,0),rgba(20,18,15,.6))}
