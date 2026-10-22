@@ -110,21 +110,51 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
   .pill-glass:hover{background:rgba(255,255,255,.24)}
   .hero-note{position:absolute;z-index:2;right:16px;top:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8)}
 
-  /* 2 statement */
-  .stmt{padding:22vh 20px;text-align:center}
-  .stmt h2{font-size:clamp(40px,6vw,92px);line-height:1;font-weight:600;letter-spacing:-.05em;color:var(--ink)}
+  /* scroll cues */
+  .prog{position:fixed;left:0;top:0;right:0;height:3px;z-index:35;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+  .cue{position:absolute;z-index:2;left:50%;bottom:30px;transform:translateX(-50%);display:none;flex-direction:column;align-items:center;gap:10px;color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.9}
+  .cue i{position:relative;width:1px;height:42px;background:rgba(255,255,255,.3);overflow:hidden}
+  .cue i:after{content:"";position:absolute;left:0;top:0;width:1px;height:16px;background:#fff;animation:cue 1.9s cubic-bezier(.6,0,.3,1) infinite}
+  @keyframes cue{from{transform:translateY(-16px)}to{transform:translateY(42px)}}
+  @media(min-width:1100px){.cue{display:flex}}
+
+  /* 2 statement + master at work */
+  .stmt{display:grid;grid-template-columns:1fr minmax(0,440px);gap:clamp(32px,6vw,96px);align-items:center;max-width:1240px;margin:0 auto;padding:13vh 40px 7vh}
+  .stmt h2{font-size:clamp(44px,5.6vw,88px);line-height:1;font-weight:600;letter-spacing:-.05em;color:var(--ink)}
   .stmt h2 .ch{opacity:.12}
-  .stmt p{font-size:clamp(20px,2.2vw,30px);color:var(--mute);margin-top:22px;letter-spacing:-.02em}
+  .stmt .sp{font-size:clamp(20px,2.1vw,30px);color:var(--mute);margin-top:18px;letter-spacing:-.02em;line-height:1.25}
+  .stmt .sd{margin-top:24px;max-width:44ch;font-size:16px;line-height:1.55;color:var(--soft)}
+  .mv{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:var(--ink);aspect-ratio:4/5;box-shadow:0 34px 70px -34px rgba(23,21,18,.5)}
+  .mv video{width:100%;height:100%;object-fit:cover}
+  .mv figcaption{position:absolute;left:12px;right:12px;bottom:12px;display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 12px;border-radius:12px}
+  .mv figcaption i{width:7px;height:7px;border-radius:50%;background:var(--gold-l);flex:none}
+
+  /* what's below */
+  .toc{max-width:1240px;margin:0 auto;padding:0 40px}
+  .toc-in{display:flex;align-items:center;gap:22px;border-top:1px solid var(--line);padding:18px 0 0}
+  .toc-l{display:inline-flex;align-items:center;gap:10px;flex:none;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+  .toc-l i{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bone);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+  .toc ol{list-style:none;display:flex;gap:6px;flex-wrap:wrap}
+  .toc a{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:99px;background:var(--card);font-size:13px;color:var(--ink);transition:background .2s}
+  .toc a:hover{background:#fff}
+  .toc a b{font-family:var(--mono);font-size:10px;font-weight:400;letter-spacing:.1em;color:var(--gold-d)}
 
   /* 3 before/after */
-  .ba{height:92vh;min-height:520px}
+  .bax{display:grid;grid-template-columns:1fr auto;gap:clamp(32px,6vw,96px);align-items:center;max-width:1240px;margin:0 auto;padding:9vh 40px 12vh}
+  .bax h2{font-size:clamp(40px,4.8vw,72px);line-height:1;font-weight:600;letter-spacing:-.05em;margin-top:14px}
+  .bax-t>p{margin-top:18px;max-width:40ch;font-size:16.5px;line-height:1.55;color:var(--soft)}
+  .bax-n{font-size:13px!important;color:var(--mute)!important;max-width:44ch;padding-left:12px;border-left:2px solid var(--gold)}
+  .bax .pill{margin-top:26px}
+  .ba{height:min(84vh,800px);aspect-ratio:3/4;margin:0;cursor:ew-resize;box-shadow:0 34px 70px -34px rgba(23,21,18,.5)}
+  .ba .bb,.ba .aa{position:absolute;inset:0}
   .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .ba .after{clip-path:inset(0 0 0 50%)}
-  .ba .line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,.9);z-index:2}
-  .ba .knob{position:absolute;top:50%;left:50%;z-index:3;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);box-shadow:0 4px 18px rgba(0,0,0,.25);cursor:ew-resize;touch-action:none}
-  .ba .lb{position:absolute;z-index:2;top:50%;transform:translateY(-50%);color:#fff;font-size:clamp(36px,5vw,72px);font-weight:600;letter-spacing:-.04em;text-shadow:0 2px 20px rgba(0,0,0,.35)}
-  .ba .lb.l{left:6%}.ba .lb.r{right:6%}
-  .capcard{position:absolute;z-index:3;right:16px;bottom:16px;max-width:280px;background:rgba(217,208,193,.92);backdrop-filter:blur(8px);border-radius:14px;padding:14px 16px;font-size:13.5px;color:var(--ink);line-height:1.45}
+  .ba .aa{clip-path:inset(0 0 0 50%)}
+  .ba .viz{left:12px;right:auto}
+  .ba .line{position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,.9);z-index:4}
+  .ba .knob{position:absolute;top:50%;left:50%;z-index:5;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);box-shadow:0 4px 18px rgba(0,0,0,.25);cursor:ew-resize;touch-action:none}
+  .ba .lb{position:absolute;z-index:2;bottom:16px;color:#fff;font-size:clamp(22px,2.2vw,32px);font-weight:600;letter-spacing:-.03em;text-shadow:0 2px 16px rgba(0,0,0,.45)}
+  .ba .lb.l{left:18px}.ba .lb.r{right:18px}
 
   /* lookbook band */
   .lbb{margin:10px 10px 0;border-radius:var(--r);background:var(--ink);color:var(--bone);display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:56px 56px 56px 60px;overflow:hidden}
@@ -261,6 +291,11 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
   .no-motion .reveal{opacity:1;transform:none}
 
   @media(max-width:900px){
+    .stmt{grid-template-columns:1fr;padding:12vh 26px 6vh;gap:30px}
+    .mv{width:100%;max-width:460px}
+    .toc{padding:0 26px}
+    .bax{grid-template-columns:1fr;padding:9vh 26px 10vh;gap:28px}
+    .ba{height:auto;width:100%;max-width:560px}
     .feat-d{display:none}
     .feat-m{display:block;padding:12vh 10px 0}
     .feat-m h2{text-align:center;font-size:clamp(34px,8vw,52px);line-height:1;font-weight:600;letter-spacing:-.045em;margin-bottom:28px}
@@ -298,7 +333,6 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .hero-cta{flex-direction:column}
     .hero-cta .pill{min-height:48px}
     .hero-note{top:auto;bottom:auto;right:12px;top:12px}
-    .ba{height:72vh}
     .fac{height:auto;min-height:0;grid-template-columns:1fr;grid-template-rows:auto auto}
     .fac figure{aspect-ratio:4/5}
     .fac figure:first-of-type{aspect-ratio:3/4}
@@ -308,8 +342,22 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .fac:after{background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0) 30%)}
     .lbb h2{font-size:34px}
     .lbb .acts .pill{flex:1}
-    .ba .lb{font-size:34px;top:14%;transform:none}
-    .capcard{left:12px;right:12px;bottom:12px;max-width:none;font-size:13px}
+    .stmt{padding:64px 16px 30px;gap:24px}
+    .stmt h2{font-size:clamp(40px,11.5vw,54px)}
+    .stmt .sd{font-size:15px;margin-top:16px}
+    .toc{padding:0}
+    .toc-in{flex-direction:column;align-items:flex-start;gap:12px;margin:0 16px;padding-top:16px}
+    .toc ol{flex-wrap:nowrap;overflow-x:auto;width:calc(100% + 32px);margin:0 -16px;padding:0 16px 4px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 80%,transparent);mask-image:linear-gradient(90deg,#000 80%,transparent)}
+    .toc ol::-webkit-scrollbar{display:none}
+    .toc li{flex:none}
+    .bax{display:flex;flex-direction:column;align-items:stretch;padding:56px 16px 64px;gap:0}
+    .bax-t{display:contents}
+    .bax h2{font-size:clamp(36px,10vw,48px)}
+    .bax-t>p{font-size:15px}
+    .bax .ba{order:1;margin-top:22px}
+    .bax .bax-n{order:2;margin-top:18px}
+    .bax .pill{order:3;width:100%;margin-top:18px}
+    .ba .lb{font-size:22px;bottom:12px}
     .join-in{padding-top:12vh}
     .chat{display:none}
     .foot{padding-bottom:110px}
@@ -317,11 +365,12 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .mbar .pill{min-height:50px}
     .mbar .wa{background:#1F7A4D;color:#fff}
   }
-  @media(prefers-reduced-motion:reduce){.kb,.hs img.on{animation:none}.reveal{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.kb,.hs img.on,.cue i:after,.toc-l i{animation:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
+<div class="prog" id="prog" aria-hidden="true"></div>
 <div class="ann">Free site visits with real samples<span class="ann-x"> in Miami-Dade &amp; Broward</span> · <a href="/lookbook/M5_Lookbook_2026.pdf" download data-track="lookbook_download">Get the 2026 lookbook</a></div>
 
 <header class="hdr" id="hdr">
@@ -353,20 +402,49 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
       <a class="pill pill-glass" href="#lookbook" data-track="lookbook_hero">See the 2026 lookbook</a>
     </div>
   </div>
+  <a class="cue" href="#real" aria-label="Scroll down to see more">Scroll<i></i></a>
 </section>
 
-<section class="stmt">
-  <h2 id="stmt">This is not paint.</h2>
-  <p class="reveal">It's stone, laid by hand, coat after coat.</p>
+<section class="stmt" id="real">
+  <div>
+    <h2 id="stmt">This is not paint.</h2>
+    <p class="sp">It's stone, laid by hand, coat after coat.</p>
+    <p class="sd reveal">Every wall is trowelled on site by our own masters: thin coats of mineral plaster, each one pressed and polished by hand until the stone shows depth. No panels, no wallpaper, no print.</p>
+  </div>
+  <figure class="mv">
+    <video class="lazyv" muted loop playsinline preload="none" poster="/media/lp/master.webp" data-src="/media/lp/master.mp4" aria-label="Our master applying Velvet plaster to a bedroom wall with a trowel"></video>
+    <figcaption><i></i>Our master at work · real project</figcaption>
+  </figure>
 </section>
 
-<section class="frame ba" id="ba">
-  <img src="/media/lp/ba_before.webp" alt="Fireplace wall before: plain painted drywall, masking tape on the edges" loading="lazy" decoding="async">
-  <img class="after" id="baAfter" src="/media/lp/ba_after.webp" alt="The same fireplace wall from the same angle, finished in black Venetian plaster" loading="lazy" decoding="async">
-  <div class="line" id="baLine"></div>
-  <div class="knob" id="baKnob" role="slider" aria-label="Compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">⟷</div>
-  <span class="lb l">Before</span><span class="lb r">After</span>
-  <div class="capcard"><b>Same wall, same angle.</b> Plain drywall turned into black Venetian stone by our masters in a few days. Real photos.</div>
+<nav class="toc" aria-label="Further down this page">
+  <div class="toc-in">
+    <span class="toc-l"><i>↓</i>Keep scrolling</span>
+    <ol>
+      <li><a href="#ba"><b>01</b>Before &amp; after</a></li>
+      <li><a href="#lookbook"><b>02</b>2026 lookbook</a></li>
+      <li><a href="#inout"><b>03</b>Inside &amp; out</a></li>
+      <li><a href="#work"><b>04</b>Real projects</a></li>
+      <li><a href="#how"><b>05</b>Finishes &amp; process</a></li>
+      <li><a href="#estimate"><b>06</b>Free site visit</a></li>
+    </ol>
+  </div>
+</nav>
+
+<section class="bax" id="ba">
+  <div class="bax-t">
+    <span class="mono">Before &amp; after · concrete-look plaster</span>
+    <h2>Same hallway.<br>Now it's stone.</h2>
+    <p>A calm grey concrete look, seamless from wall to ceiling. No panels, no grout lines, nothing to peel.</p>
+    <p class="bax-n"><b>After</b> is a real photo of our masters' work. <b>Before</b> is a visualization of the same frame in plain paint, so you can see the difference.</p>
+    <button class="pill pill-gold" type="button" data-open data-track="cta_ba">Get this look · free site visit</button>
+  </div>
+  <div class="frame ba" id="baBox">
+    <div class="bb"><img src="/media/lp/ba_hall_before.webp" alt="Visualization: the same hallway with plain white painted walls, ceiling and cabinet fronts" loading="lazy" decoding="async"><span class="viz">VISUALIZATION</span><span class="lb l">Before</span></div>
+    <div class="aa" id="baAfter"><img src="/media/lp/ba_hall_after.webp" alt="Real photo: hallway finished in grey concrete-look mineral plaster by our masters, with LED cove lighting" loading="lazy" decoding="async"><span class="real">REAL PHOTO</span><span class="lb r">After</span></div>
+    <div class="line" id="baLine"></div>
+    <div class="knob" id="baKnob" role="slider" aria-label="Compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">⟷</div>
+  </div>
 </section>
 
 <section class="lbb" id="lookbook">
@@ -390,7 +468,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
 
 <section class="frame fac" id="inout">
   <figure><img src="/media/lp/fac_out.webp" style="object-position:30% 20%" alt="Modern house with a fluted Marmorino facade, our masters' work" loading="lazy" decoding="async"><figcaption class="tag">Outside · Marmorino facade</figcaption></figure>
-  <figure><img src="/media/lp/fac_in.webp" alt="Hallway with built-in cabinets in concrete-look mineral plaster, our masters' work" loading="lazy" decoding="async"><figcaption class="tag">Inside · mineral plaster hallway</figcaption></figure>
+  <figure><img src="/media/lp/fac_in_velvet.webp" style="object-position:50% 40%" alt="Freestanding feature wall in grey Velvet mineral plaster in a bright living space, our masters' work" loading="lazy" decoding="async"><figcaption class="tag">Inside · Velvet feature wall</figcaption></figure>
   <div class="fac-t">
     <h2>Walls inside.<br>Facades outside.</h2>
     <p>Mineral plaster isn't only for one feature wall. Inside, it gives hallways and living rooms a calm stone matte. Outside, Marmorino covers whole facades and takes Florida sun, salt air and rain without peeling like paint.</p>
@@ -411,6 +489,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
   <div class="rail-nav"><button type="button" aria-label="Previous" data-rail="-1">←</button><button type="button" aria-label="Next" data-rail="1">→</button></div>
 </section>
 
+<div id="how"></div>
 <section class="feat feat-d" id="finishes">
   <div class="feat-pin" id="featPin">
     <div class="feat-l">
@@ -548,13 +627,13 @@ var FEAT=[
   document.querySelectorAll('.lazyv,.feat-m video').forEach(function(v){io.observe(v)});
 
   /* header */
-  var hdr=document.getElementById('hdr'),chat=document.querySelector('.chat');function hs(){hdr.classList.toggle('up',scrollY>40);if(chat)chat.classList.toggle('show',scrollY>innerHeight*.7)}addEventListener('scroll',hs,{passive:true});hs();
+  var hdr=document.getElementById('hdr'),chat=document.querySelector('.chat');var prog=document.getElementById('prog');function hs(){hdr.classList.toggle('up',scrollY>40);if(chat)chat.classList.toggle('show',scrollY>innerHeight*.7);var m=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(m>0?Math.min(1,scrollY/m):0)+')'}addEventListener('scroll',hs,{passive:true});hs();
 
   /* rail arrows */
   var rail=document.getElementById('rail');document.querySelectorAll('[data-rail]').forEach(function(b){b.onclick=function(){rail.scrollBy({left:(+b.dataset.rail)*rail.clientWidth*.8,behavior:'smooth'})}});
 
   /* before/after: drag + scroll */
-  var ba=document.getElementById('ba'),aft=document.getElementById('baAfter'),line=document.getElementById('baLine'),knob=document.getElementById('baKnob');
+  var ba=document.getElementById('baBox'),aft=document.getElementById('baAfter'),line=document.getElementById('baLine'),knob=document.getElementById('baKnob');
   function setBA(p){p=Math.max(2,Math.min(98,p));aft.style.clipPath='inset(0 0 0 '+p+'%)';line.style.left=p+'%';knob.style.left=p+'%';knob.setAttribute('aria-valuenow',Math.round(p))}
   var drag=false;function bx(e){var r=ba.getBoundingClientRect();setBA(((e.touches?e.touches[0].clientX:e.clientX)-r.left)/r.width*100)}
   knob.addEventListener('pointerdown',function(e){drag=true;knob.setPointerCapture(e.pointerId)});
