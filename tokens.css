@@ -19,6 +19,22 @@
    (Geist 800 is only for the M5 monogram inside the logo SVG.)
    ========================================================================== */
 
+/* Metric-matched fallbacks for the web fonts.
+   Georgia scaled to Cormorant's width (measured 88.4%), so headings keep
+   their line breaks while the web font loads and nothing below them jumps. */
+@font-face {
+  font-family: 'Cormorant Fallback';
+  src: local('Georgia'), local('Georgia Regular');
+  size-adjust: 88.4%;
+}
+
+/* Arial is within 1% of Geist; the system UI font is wider and re-wraps body text. */
+@font-face {
+  font-family: 'Geist Fallback';
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 100.9%;
+}
+
 :root {
 
   /* ------------------------------------------------------------------------
@@ -78,14 +94,14 @@
      a system Courier today.
      ------------------------------------------------------------------------ */
 
-  --font-display: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
-  --font-body:    'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Cormorant', 'Cormorant Fallback', Georgia, 'Times New Roman', serif;
+  --font-body:    'Geist', 'Geist Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-label:   var(--font-body);
 
   /* Type scale: 8 steps replace the 32 sizes currently on the home page.
      Values are fluid between a 390px phone and a 1440px desktop.          */
   --fs-display: clamp(44px, 1.6rem + 4.6vw, 72px);  /* hero h1              */
-  --fs-h2:      clamp(36px, 1.4rem + 3.2vw, 64px);  /* section titles       */
+  --fs-h2:      clamp(32px, 1.2rem + 2.6vw, 52px);  /* section titles       */
   --fs-h3:      clamp(26px, 1.2rem + 1.0vw, 32px);  /* card titles, FAQ q   */
   --fs-lead:    clamp(19px, 1rem + .5vw, 22px);     /* intro paragraphs     */
   --fs-body:    17px;                               /* all running text     */
