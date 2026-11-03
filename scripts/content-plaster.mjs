@@ -43,12 +43,12 @@ export const costEn = {
       <h3>Ceilings</h3>
       <p>Plaster can run from the wall onto the ceiling without a break, which gives a seamless room. A ceiling is also a large surface worked overhead, so it adds time to the project.</p>
       <h3>Bathrooms and powder rooms</h3>
-      <p>Venetian plaster and marmorino are common in bathrooms and powder rooms. Wet zones get a protective sealer. A small room with many corners and details can take as long as a larger plain wall.</p>
+      <p>Venetian plaster and marmorino are common in bathrooms and powder rooms. Wet zones get a protective sealer. A small room with many corners and details can take as long as a larger plain wall. How it holds up: <a href="/guides/venetian-plaster-humidity-miami/">Venetian plaster in Miami humidity</a>.</p>
       <h3>Fireplaces</h3>
       <p>A fireplace wall or column is a feature that people look at up close, so the finish and the detail work matter. We show the finish on a real panel first.</p>
-      <div class="figs">${fig('/media/lp/w_fireplace.jpg', 900, 1125, 'Black Venetian plaster fireplace wall', 'Black Venetian fireplace wall · master&#x27;s work', '/projects/black-fireplace-wall.html')}${fig('/img/case_powder-room-black-marmorino_2_t.jpg', 844, 900, 'Black Marmorino powder room', 'Black Marmorino powder room · master&#x27;s work', '/projects/powder-room-black-marmorino.html')}</div>` },
+      <div class="figs">${fig('/img/cost_ivory.jpg', 900, 1125, 'Warm ivory polished Venetian plaster wall with a linear fireplace in a sunlit living room', 'Warm ivory polished Venetian plaster · visualization', '/venetian-plaster/')}${fig('/img/cost_grey.jpg', 900, 1125, 'Powder room in warm grey mineral plaster with a concrete effect and a walnut vanity', 'Grey mineral plaster, concrete effect · visualization', '/venetian-plaster/')}</div>` },
     { id: 'compare', alt: true, label: 'Compared', h2: 'Venetian plaster, microcement and paint', html: `
-      <p>An honest comparison of three ways to finish a wall. Prices vary by project, so the table compares what you get, not a number.</p>
+      <p>An honest comparison of three ways to finish a wall. Prices vary by project, so the table compares what you get, not a number. The ten-year view, repaints included, is in <a href="/guides/venetian-plaster-vs-paint-miami/">Venetian plaster vs paint in a Miami home</a>.</p>
       <div class="tblw"><table class="cmp"><thead><tr><th></th><th>Venetian plaster</th><th>Microcement</th><th>Paint</th></tr></thead><tbody>
       <tr><td>What it is</td><td>Mineral plaster, trowelled in thin coats and burnished by hand</td><td>A cement-based coating, applied in thin layers</td><td>A thin film rolled or sprayed on</td></tr>
       <tr><td>Look</td><td>Depth that changes with the light; from satin to a marble-like shine</td><td>Seamless, even, concrete-like</td><td>Flat and uniform</td></tr>
@@ -66,7 +66,7 @@ export const costEn = {
       </ol>
       <p>Browse finished walls first in <a href="/portfolio/">our plaster work</a>.</p>
       <h3>Part of a full renovation?</h3>
-      <p>A typical full renovation project with M5 is $200–250K, and plaster is one line of the itemized estimate. Typical kitchen, bathroom and design prices are in our <a href="/guides/renovation-cost-miami/">renovation cost guide</a>. See <a href="/condo-renovation/">condo and apartment renovation</a> and <a href="/home-renovation/">full home renovation</a>.</p>` },
+      <p>A typical full renovation project with M5 is $200–250K, and plaster is one line of the itemized estimate. Typical kitchen, bathroom and design prices are in our free <a href="/?guide=1">renovation cost guide</a>. See <a href="/condo-renovation/">condo and apartment renovation</a> and <a href="/home-renovation/">full home renovation</a>.</p>` },
   ],
   faq: [
     { q: 'Why is Venetian plaster more expensive than paint?', a: 'Paint is a thin film rolled on in an afternoon. Venetian plaster is mineral plaster applied in thin coats by hand and burnished, which takes skilled labour and drying time between coats. You pay for the craft, and for a wall that does not peel and can be repaired.' },
@@ -104,7 +104,7 @@ export const marmorinoEn = {
       <p>Not sure which you want? We bring both to the site visit so you can hold them against your wall. More on Venetian plaster in <a href="/venetian-plaster/">our main plaster guide</a>.</p>` },
     { id: 'where', label: 'Where it works', h2: 'Powder rooms, fireplaces and feature walls', html: `
       <ul>
-      <li><strong>Powder rooms and bathrooms.</strong> Marmorino is common here. Wet zones get a protective sealer.</li>
+      <li><strong>Powder rooms and bathrooms.</strong> Marmorino is common here. Wet zones get a protective sealer. More in <a href="/guides/venetian-plaster-humidity-miami/">Venetian plaster in Miami humidity</a>.</li>
       <li><strong>Fireplaces.</strong> A marmorino fireplace wall is seamless, with no joints or grout lines.</li>
       <li><strong>Feature walls and bedrooms.</strong> A calm surface that changes softly with the light through the day.</li>
       <li><strong>Facades.</strong> Outside, marmorino covers whole facades and takes sun, salt air and rain without peeling like paint.</li>
