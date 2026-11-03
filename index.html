@@ -653,13 +653,12 @@ header,.h-cta,.qz,.xi,.qz-opt,.qz-opt .ic,.qz-form input,.xi-form input,#ldPlan,
   .hs-cap{display:none}
   .hs-rail{display:none}
   @media(min-width:681px){
-    .hero-seq{height:340vh;position:relative}
+    .hero-seq{height:300vh;position:relative}
     .hero-seq .hero{position:sticky;top:0;height:100vh;min-height:100vh;overflow:hidden}
     .hs-layer{display:block;position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:0;will-change:opacity}
-    .hs-layer.l0{background-image:url('/img/hero_wall.webp');opacity:1}
-    .hs-layer.l1{background-image:url('/img/ba_plaster_before.webp')}
-    .hs-layer.l2{background-image:url('/img/plaster_master.webp');background-position:50% 22%}
-    .hs-layer.l3{background-image:url('/img/ba_plaster_after.webp')}
+    .hs-layer.l0{background-image:url('/img/hero_seq_1.webp');opacity:1}
+    .hs-layer.l1{background-image:url('/img/hero_seq_2.webp')}
+    .hs-layer.l2{background-image:url('/img/hero_wall.webp')}
     .hero-seq .hero-img{z-index:1;background:
       linear-gradient(90deg,rgba(15,13,10,.72) 0%,rgba(15,13,10,.35) 42%,rgba(15,13,10,.12) 100%),
       linear-gradient(180deg,rgba(15,13,10,.30) 0%,rgba(15,13,10,.05) 38%,rgba(15,13,10,.55) 74%,rgba(15,13,10,.94) 100%)}
@@ -667,7 +666,7 @@ header,.h-cta,.qz,.xi,.qz-opt,.qz-opt .ic,.qz-form input,.xi-form input,#ldPlan,
     .hs-cap span{position:absolute;left:0;right:0;top:0;text-align:center;opacity:0;transition:opacity .45s ease}
     .hs-rail{margin-left:auto;margin-right:auto}
     .hs-cap span.on{opacity:1}
-    .hs-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;list-style:none;margin:var(--space-7) 0 0;padding:0;max-width:760px}
+    .hs-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none;margin:var(--space-7) 0 0;padding:0;max-width:760px}
     .hs-rail li{position:relative;padding-top:10px;color:rgba(244,238,228,.45);transition:color .3s}
     .hs-rail li i{font:500 10px/1 var(--font-label,var(--sans));font-style:normal;letter-spacing:.16em;margin-right:8px;color:var(--color-gold-on-dark,#D9B87C);opacity:.7}
     .hs-rail li span{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
@@ -728,11 +727,10 @@ header,.h-cta,.qz,.xi,.qz-opt,.qz-opt .ic,.qz-form input,.xi-form input,#ldPlan,
   <div class="hs-layer l0" aria-hidden="true"></div>
   <div class="hs-layer l1" aria-hidden="true"></div>
   <div class="hs-layer l2" aria-hidden="true"></div>
-  <div class="hs-layer l3" aria-hidden="true"></div>
   <div class="hero-img" id="heroImg"><picture class="hero-pic"><source media="(min-width:681px)" srcset="/img/px.gif"><source type="image/avif" srcset="/img/m/hero_plaster_828.avif 828w, /img/m/hero_plaster_1170.avif 1170w" sizes="100vw"><img src="/img/m/hero_plaster_828.webp" srcset="/img/m/hero_plaster_828.webp 828w, /img/m/hero_plaster_1170.webp 1170w" sizes="100vw" width="828" height="1484" alt="Hand-applied ivory Venetian plaster wall in a Miami living room at golden hour" fetchpriority="high" decoding="async"></picture></div>
   <div class="wrap">
     <div class="hero-badge" data-i18n="hero.badge">HAND-APPLIED VENETIAN PLASTER &amp; MARMORINO</div>
-    <div class="hs-cap" id="hsCap"><span class="on">Scroll to see how a wall becomes this.</span><span>01 · Before. A Miami living room, walls stripped to the base.</span><span>02 · Our masters apply Venetian plaster by hand, coat by coat.</span><span>03 · After. The same room, finished.</span></div>
+    <div class="hs-cap" id="hsCap"><span class="on">01 · A plain white wall. Scroll to watch it change.</span><span>02 · Our master applies Venetian plaster by hand, coat by coat.</span><span>03 · Finished. Now the light does the rest.</span></div>
     <a class="hero-tag" href="/venetian-plaster/" target="_blank" rel="noopener"><b data-i18n="hero.tag1">Venetian plaster</b><i data-i18n="hero.tag2">Applied by hand</i><svg class="ht-arr" viewBox="0 0 64 70" fill="none" stroke="#F4EEE4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M58 68 C 54 40, 36 18, 8 9"/><path d="M19 3 L 7 8.5 L 15 18"/></svg></a>
     <h1 data-i18n="hero.h1">Walls that change with the light.</h1>
     <p class="hero-sub" data-i18n="hero.sub">Venetian plaster for Miami homes, applied by hand by our masters. Plus interior design and renovation with licensed &amp; insured partners.</p>
@@ -740,7 +738,7 @@ header,.h-cta,.qz,.xi,.qz-opt,.qz-opt .ic,.qz-form input,.xi-form input,#ldPlan,
       <a class="btn btn-bone" href="#contact" data-i18n="hero.sample">Book a free sample visit</a>
       <a class="hero-link" href="/venetian-plaster/" target="_blank" rel="noopener" data-i18n="hero.cta2">See the finishes</a>
     </div>
-    <ol class="hs-rail" id="hsRail" aria-hidden="true"><li class="on"><i>00</i><span>The wall</span><b></b></li><li><i>01</i><span>Before</span><b></b></li><li><i>02</i><span>Our masters</span><b></b></li><li><i>03</i><span>After</span><b></b></li></ol>
+    <ol class="hs-rail" id="hsRail" aria-hidden="true"><li class="on"><i>01</i><span>White wall</span><b></b></li><li><i>02</i><span>By hand</span><b></b></li><li><i>03</i><span>Venetian plaster</span><b></b></li></ol>
   </div>
   <div class="hero-strip">
     <div class="wrap"><span data-i18n="hero.strip1">VENETIAN PLASTER · INTERIOR DESIGN STUDIO</span><span data-i18n="hero.strip3">ENGLISH · SPANISH · UKRAINIAN · RUSSIAN</span></div>
