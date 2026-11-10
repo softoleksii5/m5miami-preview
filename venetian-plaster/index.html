@@ -36,7 +36,7 @@ window.m5attr=function(){var a={};try{var q=location.search,ks=['utm_source','ut
 try{m5attr()}catch(e){}
 window.m5uuid=function(){try{if(crypto&&crypto.randomUUID)return crypto.randomUUID()}catch(e){}return 'x'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10)};
 window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p.attribution=m5attr();p.page=location.pathname;
-  p.consent={text:'By submitting, you agree to be contacted about your project.',at:new Date().toISOString(),page:location.pathname};
+  p.consent={text:'By submitting you agree to receive texts from M5 Studio Miami about your request. Msg & data rates may apply. Reply STOP to opt out.',at:new Date().toISOString(),page:location.pathname};
   return fetch(M5_LEADS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true})
     .then(function(r){return r.json().then(function(j){return {ok:!!(j&&j.ok),lead_id:j&&j.lead_id,created:j&&j.created,status:r.status}}).catch(function(){return {ok:false,status:r.status}})})
     .catch(function(){return {ok:false,status:0}})};
@@ -316,7 +316,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .ann{font-size:11.5px}
     .ann .ann-x{display:none}
     .hdr{padding:0 12px}
-    .hdr-r .wa,.hdr-r .lb{display:none}
+    .hdr-r .wa,.hdr-r .lb,.hdr-r .tel{display:none}
     .mark{width:44px;height:44px}
     .hero{min-height:640px}
     .hero-top{top:11%}
@@ -358,7 +358,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .join-in{padding-top:12vh}
     .chat{display:none}
     .foot{padding-bottom:110px}
-    .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(23,21,18,.92);backdrop-filter:blur(12px);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+    .mbar{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(23,21,18,.92);backdrop-filter:blur(12px);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
     .mbar .pill{min-height:50px}
     .mbar .wa{background:#1F7A4D;color:#fff}
   }
@@ -371,10 +371,11 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
 <div class="ann">Free site visits with real samples<span class="ann-x"> across South Florida</span> · <a href="/lookbook/M5_Lookbook_2026.pdf" download data-track="lookbook_download">Get the 2026 lookbook</a></div>
 
 <header class="hdr" id="hdr">
-  <a class="mark" href="/venetian-plaster/" aria-label="M5 Studio Miami">M5</a>
+  <a class="mark" href="/" aria-label="M5 Studio Miami — home" title="M5 Studio Miami — home">M5</a>
   <div class="hdr-r">
     <a class="pill pill-light lb" href="#lookbook" data-track="lookbook_nav">Lookbook</a>
     <a class="pill pill-light wa" href="https://wa.me/17864074441?text=Hi%20M5%2C%20I%27m%20interested%20in%20Venetian%20plaster" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a>
+    <a class="pill pill-light tel" href="tel:+17868337401" data-track="phone_click">Call</a>
     <button class="pill pill-gold" type="button" data-open data-track="cta_header">Book a visit</button>
   </div>
 </header>
@@ -540,6 +541,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     <details><summary>How long does the work take?</summary><p>A feature wall or a powder room usually takes several days, including drying between coats. You get the schedule in writing with the price.</p></details>
     <details><summary>Do you work with designers and contractors?</summary><p>Yes. We match the designer's sample and fit into the contractor's schedule. Trade pricing and sample panels for your studio.</p></details>
     <p class="more">Process and price: <a href="/venetian-plaster/cost/">what Venetian plaster costs</a> · <a href="/venetian-plaster/marmorino/">Marmorino plaster</a></p>
+    <p class="more">Guides: <a href="/guides/venetian-plaster-vs-paint-miami/">Venetian plaster vs paint in a Miami home</a> · <a href="/guides/venetian-plaster-humidity-miami/">Venetian plaster in Miami humidity</a></p>
     <p class="more">Part of a full renovation? <a href="/condo-renovation/">Condo and apartment renovation</a> · <a href="/home-renovation/">Full home renovation</a></p>
   </div>
 </section>
@@ -556,12 +558,13 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
       <div class="ok" id="lbkOk">Here it is: <a href="/lookbook/M5_Lookbook_2026.pdf" download style="text-decoration:underline">download the lookbook (PDF)</a>.</div>
     </div>
   </div>
-  <div class="foot-bot"><b>M5</b><span>© 2026 M5 Studio Miami · <a href="/">m5miami.com</a> · <a href="/privacy/">Privacy</a> · hello@m5miami.com · Miami-Dade · Broward · Palm Beach</span><span>Images marked “Visualization” are illustrations.</span></div>
-<div class="m5-legal" style="font-size:11px;letter-spacing:.06em;opacity:.6;text-align:center;padding:14px 16px 4px">M5 STUDIO MIAMI LLC · Miami, FL · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a></div></footer>
+  <div class="foot-bot"><b>M5</b><span>© 2026 M5 Studio Miami · <a href="/">m5miami.com</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · hello@m5miami.com · Miami-Dade · Broward · Palm Beach</span><span>Images marked “Visualization” are illustrations.</span></div>
+<div class="m5-legal" style="font-size:11px;letter-spacing:.06em;opacity:.6;text-align:center;padding:14px 16px 4px">M5 STUDIO MIAMI LLC · Miami, FL · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacy</a> · <a href="/terms/" style="color:inherit;text-decoration:underline">Terms</a></div></footer>
 
 <a class="chat" href="https://wa.me/17864074441?text=Hi%20M5%2C%20I%27m%20interested%20in%20Venetian%20plaster" target="_blank" rel="noopener" data-track="whatsapp_click">Chat with us <i>✆</i></a>
 <div class="mbar">
   <a class="pill wa" href="https://wa.me/17864074441?text=Hi%20M5%2C%20I%27m%20interested%20in%20Venetian%20plaster" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a>
+  <a class="pill pill-light tel" href="tel:+17868337401" data-track="phone_click">Call</a>
   <button class="pill pill-gold" type="button" data-open data-track="cta_mbar">Book a free visit</button>
 </div>
 
@@ -584,7 +587,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
         <p class="err" id="mErr" role="alert">Please add your name and a phone number.</p>
         <button class="pill pill-gold" id="mBtn" type="submit">Book my visit</button>
         <p class="fail" id="mFail" role="alert">Something went wrong and the request was not saved. Please message us on <a href="https://wa.me/17864074441" style="text-decoration:underline">WhatsApp</a>.</p>
-        <p class="note">By submitting, you agree to be contacted about your project.</p>
+        <p class="note">By submitting you agree to receive texts from M5 Studio Miami about your request. Msg &amp; data rates may apply. Reply STOP to opt out. <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms</a></p>
       </form>
     </div>
     <div class="m-ok" id="mOk" role="status">

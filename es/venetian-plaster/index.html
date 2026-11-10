@@ -38,7 +38,7 @@ window.m5attr=function(){var a={};try{var q=location.search,ks=['utm_source','ut
 try{m5attr()}catch(e){}
 window.m5uuid=function(){try{if(crypto&&crypto.randomUUID)return crypto.randomUUID()}catch(e){}return 'x'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10)};
 window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p.attribution=m5attr();p.page=location.pathname;
-  p.consent={text:'Al enviar, acepta que nos pongamos en contacto con usted sobre su proyecto.',at:new Date().toISOString(),page:location.pathname};
+  p.consent={text:'Al enviar, acepta recibir mensajes de texto de M5 Studio Miami sobre su solicitud. Pueden aplicarse tarifas de mensajes y datos. Responda STOP para cancelar.',at:new Date().toISOString(),page:location.pathname};
   return fetch(M5_LEADS,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p),keepalive:true})
     .then(function(r){return r.json().then(function(j){return {ok:!!(j&&j.ok),lead_id:j&&j.lead_id,created:j&&j.created,status:r.status}}).catch(function(){return {ok:false,status:r.status}})})
     .catch(function(){return {ok:false,status:0}})};
@@ -318,7 +318,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .ann{font-size:11.5px}
     .ann .ann-x{display:none}
     .hdr{padding:0 12px}
-    .hdr-r .wa,.hdr-r .lb{display:none}
+    .hdr-r .wa,.hdr-r .lb,.hdr-r .tel{display:none}
     .mark{width:44px;height:44px}
     .hero{min-height:640px}
     .hero-top{top:11%}
@@ -360,7 +360,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     .join-in{padding-top:12vh}
     .chat{display:none}
     .foot{padding-bottom:110px}
-    .mbar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(23,21,18,.92);backdrop-filter:blur(12px);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+    .mbar{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(23,21,18,.92);backdrop-filter:blur(12px);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
     .mbar .pill{min-height:50px}
     .mbar .wa{background:#1F7A4D;color:#fff}
   }
@@ -377,6 +377,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
   <div class="hdr-r">
     <a class="pill pill-light lb" href="#lookbook" data-track="lookbook_nav">Lookbook</a>
     <a class="pill pill-light wa" href="https://wa.me/17864074441?text=Hola%20M5%2C%20me%20interesa%20el%20estuco%20veneciano" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a>
+    <a class="pill pill-light tel" href="tel:+17868337401" data-track="phone_click">Llamar</a>
     <button class="pill pill-gold" type="button" data-open data-track="cta_header">Agendar visita</button>
   </div>
 </header>
@@ -542,6 +543,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
     <details><summary>¿Cuánto tarda el trabajo?</summary><p>Una pared protagonista o un baño de visitas suele llevar varios días, incluido el secado entre capas. Usted recibe el calendario por escrito junto con el precio.</p></details>
     <details><summary>¿Trabajan con diseñadores y contratistas?</summary><p>Sí. Igualamos la muestra del diseñador y nos ajustamos al calendario del contratista. Precios para profesionales y paneles de muestra para su estudio.</p></details>
     <p class="more">Proceso y precio: <a href="/venetian-plaster/cost/" hreflang="en" lang="en">cuánto cuesta el estuco veneciano (EN)</a> · <a href="/venetian-plaster/marmorino/" hreflang="en" lang="en">estuco marmorino (EN)</a></p>
+    <p class="more">Guías: <a href="/es/guides/venetian-plaster-vs-paint-miami/">Estuco veneciano o pintura en una casa de Miami</a> · <a href="/es/guides/venetian-plaster-humidity-miami/">Estuco veneciano y humedad en Miami</a></p>
     <p class="more">¿Parte de una remodelación completa? <a href="/es/condo-renovation/">Remodelación de condominios y apartamentos</a> · <a href="/es/home-renovation/">Remodelación de casas</a></p>
   </div>
 </section>
@@ -558,12 +560,13 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
       <div class="ok" id="lbkOk">Aquí está: <a href="/lookbook/M5_Lookbook_2026.pdf" download style="text-decoration:underline">descargar el lookbook (PDF, en inglés)</a>.</div>
     </div>
   </div>
-  <div class="foot-bot"><b>M5</b><span>© 2026 M5 Studio Miami · <a href="/es/">m5miami.com</a> · <a href="/privacy/">Privacidad</a> · hello@m5miami.com · Miami-Dade · Broward · Palm Beach</span><span>Las imágenes marcadas como “Visualización” son ilustraciones.</span></div>
-<div class="m5-legal" style="font-size:11px;letter-spacing:.06em;opacity:.6;text-align:center;padding:14px 16px 4px">M5 STUDIO MIAMI LLC · Miami, FL · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacidad</a></div></footer>
+  <div class="foot-bot"><b>M5</b><span>© 2026 M5 Studio Miami · <a href="/es/">m5miami.com</a> · <a href="/privacy/">Privacidad</a> · <a href="/terms/">Condiciones</a> · hello@m5miami.com · Miami-Dade · Broward · Palm Beach</span><span>Las imágenes marcadas como “Visualización” son ilustraciones.</span></div>
+<div class="m5-legal" style="font-size:11px;letter-spacing:.06em;opacity:.6;text-align:center;padding:14px 16px 4px">M5 STUDIO MIAMI LLC · Miami, FL · <a href="/privacy/" style="color:inherit;text-decoration:underline">Privacidad</a> · <a href="/terms/" style="color:inherit;text-decoration:underline">Condiciones</a></div></footer>
 
 <a class="chat" href="https://wa.me/17864074441?text=Hola%20M5%2C%20me%20interesa%20el%20estuco%20veneciano" target="_blank" rel="noopener" data-track="whatsapp_click">Escríbanos <i>✆</i></a>
 <div class="mbar">
   <a class="pill wa" href="https://wa.me/17864074441?text=Hola%20M5%2C%20me%20interesa%20el%20estuco%20veneciano" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp</a>
+  <a class="pill pill-light tel" href="tel:+17868337401" data-track="phone_click">Llamar</a>
   <button class="pill pill-gold" type="button" data-open data-track="cta_mbar">Visita gratuita</button>
 </div>
 
@@ -586,7 +589,7 @@ window.m5lead=function(p){p=p||{};if(!p.submission_id)p.submission_id=m5uuid();p
         <p class="err" id="mErr" role="alert">Indique su nombre y un número de teléfono.</p>
         <button class="pill pill-gold" id="mBtn" type="submit">Agendar mi visita</button>
         <p class="fail" id="mFail" role="alert">Algo salió mal y la solicitud no se guardó. Escríbanos por <a href="https://wa.me/17864074441" style="text-decoration:underline">WhatsApp</a>.</p>
-        <p class="note">Al enviar, acepta que nos pongamos en contacto con usted sobre su proyecto.</p>
+        <p class="note">Al enviar, acepta recibir mensajes de texto de M5 Studio Miami sobre su solicitud. Pueden aplicarse tarifas de mensajes y datos. Responda STOP para cancelar. <a href="/privacy/">Política de privacidad</a> · <a href="/terms/">Condiciones</a></p>
       </form>
     </div>
     <div class="m-ok" id="mOk" role="status">
